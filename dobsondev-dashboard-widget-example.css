@@ -1,0 +1,17 @@
+table#dobsondev-ajax-table thead {
+  background-color: #FFF;
+}
+table#dobsondev-ajax-table thead th {
+  min-width: 125px;
+  text-align: left;
+}
+table#dobsondev-ajax-table tbody tr {
+  padding: 5px 0;
+  border-bottom: 1px solid #FFF;
+}
+table#dobsondev-ajax-table tbody tr:nth-of-type(odd) {
+  background-color: #E9E9E9;
+}
+table#dobsondev-ajax-table tbody td {
+  padding: 0 5px;
+}
