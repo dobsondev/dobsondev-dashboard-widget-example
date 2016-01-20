@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: DobsonDev WordPress Dashboards Widgets API Example
+ * Plugin Name: DobsonDev WordPress Dashboard Widget API Example
  * Plugin URI: http://dobsondev.com
  * Description: An example plugin that shows you how to use the Dashboard Widgets API.
  * Version: 0.666
@@ -83,7 +83,7 @@ function dobsondev_dashboard_widget_example_function() {
 /*
  * The JavaScript for our AJAX call
  */
-function dobsondev_ajax_tester_ajax_script() {
+function dobsondev_dashboard_widget_example_ajax_script() {
   ?>
   <script type="text/javascript" >
   jQuery(document).ready(function($) {
@@ -114,7 +114,7 @@ add_action( 'admin_footer', 'dobsondev_ajax_tester_ajax_script' );
 /*
  * The AJAX handler function
  */
-function dobsondev_ajax_tester_ajax_handler() {
+function dobsondev_dashboard_widget_example_ajax_handler() {
   global $wpdb;
 
   $id = $_POST['id'];
@@ -122,7 +122,7 @@ function dobsondev_ajax_tester_ajax_handler() {
   echo json_encode($data);
   wp_die(); // just to be safe
 }
-add_action( 'wp_ajax_dobsondev_ajax_tester_approal_action', 'dobsondev_ajax_tester_ajax_handler' );
+add_action( 'wp_ajax_dobsondev_dashboard_widget_example_approal_action', 'dobsondev_dashboard_widget_example_ajax_handler' );
 
 
 ?>
