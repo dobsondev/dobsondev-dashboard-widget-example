@@ -42,18 +42,6 @@ function dobsondev_add_dashboard_widget_example() {
     'DobsonDev Dashboard Widget',                 // Title.
     'dobsondev_dashboard_widget_example_function' // Display function.
   );
-  // Globalize the metaboxes array, this holds all the widgets for wp-admin
-  global $wp_meta_boxes;
-  // Get the regular dashboard widgets array
-  // (which has our new widget already but at the end)
-  $normal_dashboard = $wp_meta_boxes['dashboard']['normal']['core'];
-  // Backup and delete our new dashboard widget from the end of the array
-  $example_widget_backup = array( 'dobsondev_dashboard_widget' => $normal_dashboard['dobsondev_dashboard_widget'] );
-  unset( $normal_dashboard['dobsondev_dashboard_widget'] );
-  // Merge the two arrays together so our widget is at the beginning
-  $sorted_dashboard = array_merge( $example_widget_backup, $normal_dashboard );
-  // Save the sorted array back into the original metaboxes
-  $wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
 }
 add_action( 'wp_dashboard_setup', 'dobsondev_add_dashboard_widget_example' );
 
@@ -93,7 +81,7 @@ function dobsondev_dashboard_widget_example_ajax_script() {
       $.ajax({
         method: "POST",
         url: ajaxurl,
-        data: { 'action': 'dobsondev_ajax_tester_approal_action', 'id': id }
+        data: { 'action': 'dobsondev_dashboard_widget_example_approval_action', 'id': id }
       })
       .done(function( data ) {
         console.log('Successful AJAX Call! /// Return Data: ' + data);
@@ -109,7 +97,7 @@ function dobsondev_dashboard_widget_example_ajax_script() {
   </script>
   <?php
 }
-add_action( 'admin_footer', 'dobsondev_ajax_tester_ajax_script' );
+add_action( 'admin_footer', 'dobsondev_dashboard_widget_example_ajax_script' );
 
 /*
  * The AJAX handler function
@@ -122,7 +110,7 @@ function dobsondev_dashboard_widget_example_ajax_handler() {
   echo json_encode($data);
   wp_die(); // just to be safe
 }
-add_action( 'wp_ajax_dobsondev_dashboard_widget_example_approal_action', 'dobsondev_dashboard_widget_example_ajax_handler' );
+add_action( 'wp_ajax_dobsondev_dashboard_widget_example_approval_action', 'dobsondev_dashboard_widget_example_ajax_handler' );
 
 
 ?>
