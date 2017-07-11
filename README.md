@@ -1,4 +1,4 @@
-#DobsonDev WordPress Dashboard Widget Example
+# DobsonDev WordPress Dashboard Widget Example
 
 A simple plugin for illustrating how to use the WordPress Dashboard Widget API. The example provided is extremely simple - but for more information see the Codex pages on the [Dashboard Widgets API](https://codex.wordpress.org/Dashboard_Widgets_API) and creating an [Example Dashboard Widget](https://codex.wordpress.org/Example_Dashboard_Widget). All of the code for this plugin was adapted from those pages as well as my own [DobsonDev WordPress AJAX Tester plugin](https://github.com/SufferMyJoy/dobsondev-wordpress-ajax-tester).
 
